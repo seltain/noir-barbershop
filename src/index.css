@@ -1,0 +1,118 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background-color: #0a0a0a;
+  }
+
+  body {
+    @apply bg-noir-black text-noir-bone font-body antialiased;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: #a3854f;
+    color: #0a0a0a;
+  }
+
+  :focus-visible {
+    outline: 1px solid #a3854f;
+    outline-offset: 4px;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display;
+    font-weight: 400;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  /* Editorial section container: consistent gutters across the whole site */
+  .container-editorial {
+    @apply mx-auto w-full max-w-canvas px-6 sm:px-8 md:px-12 lg:px-16;
+  }
+
+  /* The brand's signature motif: a thin brass line, like a blade's edge */
+  .brass-line {
+    @apply block h-px w-full bg-noir-brass/60;
+  }
+
+  .eyebrow {
+    @apply font-mono text-[0.68rem] uppercase tracking-widest3 text-noir-brass;
+  }
+
+  .btn-primary {
+    @apply relative inline-flex items-center justify-center overflow-hidden border border-noir-brass px-8 py-4 font-mono text-[0.72rem] uppercase tracking-widest2 text-noir-bone transition-colors duration-500 ease-editorial;
+  }
+  .btn-primary::before {
+    content: '';
+    @apply absolute inset-0 -z-10 origin-left scale-x-0 bg-noir-brass transition-transform duration-500 ease-editorial;
+  }
+  .btn-primary:hover::before,
+  .btn-primary:focus-visible::before {
+    @apply scale-x-100;
+  }
+  .btn-primary:hover,
+  .btn-primary:focus-visible {
+    @apply text-noir-black;
+  }
+
+  .btn-ghost {
+    @apply relative inline-flex items-center gap-3 font-mono text-[0.72rem] uppercase tracking-widest2 text-noir-bone;
+  }
+  .field-input {
+    @apply border-0 border-b border-noir-bone/20 bg-transparent py-2 font-body text-base text-noir-bone outline-none transition-colors duration-300 placeholder:text-noir-bone/30 focus:border-noir-brass;
+  }
+
+  .btn-ghost::after {
+    content: '';
+    @apply h-px w-8 origin-left scale-x-100 bg-noir-brass transition-transform duration-500 ease-editorial;
+  }
+  .btn-ghost:hover::after,
+  .btn-ghost:focus-visible::after {
+    @apply w-14 scale-x-100;
+  }
+}
+
+@layer utilities {
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+}
