@@ -80,6 +80,11 @@
     @apply text-noir-black;
   }
 
+  /* Solid brass CTA — filled by default (not just on hover), dark text, for the form's primary action */
+  .btn-solid {
+    @apply inline-flex items-center justify-center border border-noir-brass bg-noir-brass px-8 py-4 font-mono text-[0.72rem] uppercase tracking-widest2 text-noir-black transition-colors duration-300 ease-editorial hover:bg-noir-brassLight hover:border-noir-brassLight;
+  }
+
   .btn-ghost {
     @apply relative inline-flex items-center gap-3 font-mono text-[0.72rem] uppercase tracking-widest2 text-noir-bone;
   }

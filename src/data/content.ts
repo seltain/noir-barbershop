@@ -59,6 +59,8 @@ export interface Master {
   specialization: string
   image: string
   alt: string
+  /** Object-position tuned to this specific portrait's headroom */
+  focus: string
 }
 
 export const masters: Master[] = [
@@ -68,7 +70,8 @@ export const masters: Master[] = [
     experience: '12 лет за креслом',
     specialization: 'Авторские стрижки, построение формы',
     image: '/images/master-1.jpg',
-    alt: 'Данила Орлов, ведущий мастер и арт-директор барбершопа NOIR, держит ножницы',
+    alt: 'Портрет Данилы Орлова, ведущего мастера и арт-директора NOIR, в чёрном кожаном фартуке с инструментом',
+    focus: 'object-[50%_6%]',
   },
   {
     name: 'Тимур Агеев',
@@ -76,7 +79,8 @@ export const masters: Master[] = [
     experience: '9 лет за креслом',
     specialization: 'Королевское бритьё, моделирование бороды',
     image: '/images/master-2.jpg',
-    alt: 'Тимур Агеев, мастер бороды и бритья барбершопа NOIR',
+    alt: 'Портрет Тимура Агеева, мастера бороды и бритья NOIR, в чёрном кожаном фартуке с инструментом',
+    focus: 'object-[50%_18%]',
   },
   {
     name: 'Роман Белых',
@@ -84,7 +88,8 @@ export const masters: Master[] = [
     experience: '6 лет за креслом',
     specialization: 'Fade, классические стрижки',
     image: '/images/master-3.jpg',
-    alt: 'Роман Белых, барбер NOIR, в интерьере барбершопа',
+    alt: 'Портрет Романа Белых, барбера NOIR, в чёрном кожаном фартуке с инструментом',
+    focus: 'object-[50%_8%]',
   },
 ]
 
@@ -101,49 +106,57 @@ export interface GalleryItem {
 export const galleryItems: GalleryItem[] = [
   {
     image: '/images/gallery-1.jpg',
-    alt: 'Барбер работает над стрижкой клиента у зеркала',
+    alt: 'Чёрно-белый крупный план: мастер укладывает и расчёсывает волосы клиента руками',
     caption: 'Работа с формой',
     span: 'md:col-span-7 md:row-span-2',
   },
   {
     image: '/images/gallery-4.jpg',
-    alt: 'Крупный план: моделирование бороды триммером',
-    caption: 'Линия бороды',
+    alt: 'Мастер в чёрных перчатках держит два парикмахерских ножниц крест-накрест',
+    caption: 'Инструмент мастера',
     span: 'md:col-span-5 md:row-span-3',
-    focus: 'object-top',
+    focus: 'object-[52%_55%]',
   },
   {
     image: '/images/gallery-2.jpg',
-    alt: 'Барбер укладывает волосы феном в интерьере с тёплым светом',
-    caption: 'Инструмент мастера',
+    alt: 'Барбер бреет клиента опасной бритвой в кресле в тёплом свете',
+    caption: 'Момент бритья',
     span: 'md:col-span-5 md:row-span-2',
+    focus: 'object-[50%_76%]',
   },
   {
     image: '/images/gallery-6.jpg',
-    alt: 'Стрижка филировочными ножницами со стороны затылка',
-    caption: 'Финальный штрих',
+    alt: 'Профиль мужской стрижки fade с чётким переходом у окна с каплями дождя',
+    caption: 'Чёткая линия',
     span: 'md:col-span-3 md:row-span-2',
   },
   {
     image: '/images/gallery-3.jpg',
-    alt: 'Клиент улыбается, читая газету во время стрижки',
-    caption: 'Момент паузы',
+    alt: 'Барбер в очках подравнивает бороду клиента у кирпичной стены',
+    caption: 'За работой',
     span: 'md:col-span-4 md:row-span-2',
+    focus: 'object-[50%_28%]',
   },
   {
     image: '/images/gallery-5.jpg',
-    alt: 'Крупный план работы триммером у линии затылка',
-    caption: 'Контур виска',
+    alt: 'Ряд барберских кресел вдоль зеркальной стены в тёмном интерьере NOIR',
+    caption: 'Ряд кресел',
     span: 'md:col-span-4 md:row-span-3',
-    focus: 'object-top',
+    focus: 'object-[55%_46%]',
   },
   {
     image: '/images/gallery-7.jpg',
-    alt: 'Интерьер зоны кресел барбершопа NOIR',
-    caption: 'Рабочее место',
+    alt: 'Мастер стрижёт клиента в тёмном зале барбершопа NOIR с латунными деталями',
+    caption: 'В процессе',
     span: 'md:col-span-8 md:row-span-2',
-    focus: 'object-bottom',
+    focus: 'object-[48%_24%]',
   },
+]
+
+// Hourly appointment start times within working hours (10:00–21:00)
+export const timeSlots = [
+  '10:00', '11:00', '12:00', '13:00', '14:00', '15:00',
+  '16:00', '17:00', '18:00', '19:00', '20:00',
 ]
 
 export const contact = {

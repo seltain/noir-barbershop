@@ -10,15 +10,27 @@ export default function Hero({ onBook }: HeroProps) {
     <section id="top" className="relative flex h-[100svh] min-h-[640px] w-full items-end overflow-hidden bg-noir-black">
       <ImageWithFallback
         src="/images/hero.jpg"
-        alt="Мастер NOIR держит ножницы — атмосфера приватного барбершопа"
+        alt="Ряд барберских кресел с латунными зеркалами в приватном зале NOIR"
         loading="eager"
-        className="absolute inset-0 h-full w-full object-cover object-[70%_20%]"
+        className="absolute inset-0 h-full w-full object-cover object-[50%_42%]"
+      />
+      {/*
+        Two layers: a radial vignette so the photo's rectangle melts into the page background
+        instead of reading as a "framed" image, plus a vertical gradient pushed extra dark at
+        the bottom where the NOIR headline and subhead sit, for guaranteed legibility.
+      */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            'radial-gradient(130% 95% at 50% 42%, transparent 38%, rgba(10,10,10,0.5) 72%, rgba(10,10,10,0.94) 100%)',
+        }}
       />
       <div
         className="absolute inset-0"
         style={{
           background:
-            'linear-gradient(180deg, rgba(10,10,10,0.55) 0%, rgba(10,10,10,0.35) 30%, rgba(10,10,10,0.55) 68%, rgba(10,10,10,0.96) 100%)',
+            'linear-gradient(180deg, rgba(10,10,10,0.5) 0%, rgba(10,10,10,0.28) 28%, rgba(10,10,10,0.5) 62%, rgba(10,10,10,0.97) 100%)',
         }}
       />
 

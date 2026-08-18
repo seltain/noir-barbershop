@@ -6,8 +6,8 @@ export default function Atmosphere() {
     <section className="relative flex h-[85vh] min-h-[520px] w-full items-center overflow-hidden bg-noir-black">
       <ImageWithFallback
         src="/images/atmosphere.jpg"
-        alt="Кресло и рабочее место мастера NOIR в приглушённом свете"
-        className="absolute inset-0 h-full w-full object-cover"
+        alt="Коридор барбершопа NOIR с рядом кожаных кресел и латунными светильниками"
+        className="absolute inset-0 h-full w-full object-cover object-[42%_55%]"
       />
       <div
         className="absolute inset-0"

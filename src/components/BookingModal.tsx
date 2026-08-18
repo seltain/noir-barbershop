@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, type FormEvent, type ReactNode } from 'react'
-import { services } from '../data/content'
+import { services, timeSlots } from '../data/content'
 import { useLockBodyScroll } from '../hooks/useLockBodyScroll'
 import { IconCheck, IconClose } from './icons'
 
@@ -14,6 +14,7 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
   const [phone, setPhone] = useState('')
   const [service, setService] = useState('')
   const [date, setDate] = useState('')
+  const [time, setTime] = useState('')
   const firstFieldRef = useRef<HTMLInputElement | null>(null)
 
   useLockBodyScroll(isOpen)
@@ -29,6 +30,7 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
       setPhone('')
       setService('')
       setDate('')
+      setTime('')
     }, 300)
     return () => clearTimeout(t)
   }, [isOpen])
@@ -131,7 +133,25 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
                 />
               </Field>
 
-              <button type="submit" className="btn-primary mt-4 w-full">
+              <Field label="Время">
+                <select
+                  required
+                  value={time}
+                  onChange={(e) => setTime(e.target.value)}
+                  className="field-input bg-noir-graphite"
+                >
+                  <option value="" disabled>
+                    Выберите время
+                  </option>
+                  {timeSlots.map((slot) => (
+                    <option key={slot} value={slot}>
+                      {slot}
+                    </option>
+                  ))}
+                </select>
+              </Field>
+
+              <button type="submit" className="btn-solid w-full">
                 Отправить заявку
               </button>
             </form>

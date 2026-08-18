@@ -34,7 +34,9 @@ export default function ImageWithFallback({ src, alt, className = '', loading = 
       loading={loading}
       decoding="async"
       onError={() => setFailed(true)}
-      className={className}
+      // Unified film treatment so photos from different shoots/sources read as one series:
+      // pulled-down saturation, slightly darker exposure, a touch more contrast, warm brass cast.
+      className={`saturate-[0.8] sepia-[0.14] contrast-[1.06] brightness-[0.93] ${className}`}
     />
   )
 }
